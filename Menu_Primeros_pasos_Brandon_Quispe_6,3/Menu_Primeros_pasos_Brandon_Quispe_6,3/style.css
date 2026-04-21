@@ -1,0 +1,46 @@
+.menu-btn {
+ font-size: 28px;
+ cursor: pointer;
+ background: none;
+ border: none;
+}
+.menu-btn {
+ font-size: 28px;
+ cursor: pointer;
+ background: none;
+ border: none;
+ display: none;
+}
+@media (max-width: 1240px) {
+ .menu-btn {
+ display: block;
+ }
+}
+@media (max-width: 1240px) {
+ nav {
+ display: none;
+ }
+}
+#menu-toggle {
+ display: none;
+}
+@media (max-width: 1240px) {
+ #menu-toggle:checked ~ nav {
+ display: grid;
+ }
+}
+nav div {
+ color: rgb(0, 0, 0);
+ padding: 12px;
+ border-bottom: 1px solid #555;
+ text-align: center;
+}
+nav div:hover {
+ background-color: #555;
+}
+.menu-btn {
+ font-size: 30px;
+ background: none;
+ border: none;
+ color: black;
+}
