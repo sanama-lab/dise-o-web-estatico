@@ -16,6 +16,16 @@ body {
     font-family: sans-serif;
 }
 
+@media (min-width: 800px) {
+    body {
+        grid-template-columns: 280px 1fr;
+        grid-template-areas: 
+            "header header"
+            "nav main"
+            "footer footer";
+    }
+}
+
 header { 
     grid-area: header; 
     background: rgb(224, 224, 224); 
@@ -43,23 +53,32 @@ footer {
 
 #menu-toggle { display: none; }
 
-@media (min-width: 1241px) {
+nav {
+    grid-area: nav;
+}
+
+@media (min-width: 800px) {
     .menu-btn { display: none; }
 
     nav {
         display: flex;
-        gap: 15px;
+        flex-direction: column;
+        grid-area: nav;
+        background-color: #a6ff00;
+        padding: 0;
+        gap: 0;
     }
 
     nav a {
-        padding: 5px 15px;
+        padding: 20px;
         cursor: pointer;
-        background: #ddd;
-        border-radius: 4px;
+        color: white;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 }
 
-@media (max-width: 1240px) {
+@media (max-width: 799px) {
     .menu-btn {
         display: block;
         font-size: 30px;
