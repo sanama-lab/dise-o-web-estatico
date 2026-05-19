@@ -57,7 +57,7 @@ nav {
     grid-area: nav;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1241px) {
     .menu-btn { display: none; }
 
     nav {
@@ -78,7 +78,7 @@ nav {
     }
 }
 
-@media (max-width: 799px) {
+@media (max-width: 1240px) {
     .menu-btn {
         display: block;
         font-size: 30px;
@@ -136,12 +136,12 @@ main h1, main h2 {
     background: #fdfdfd;
     padding: 20px;
     border-radius: 10px;
-    border-left: 8px solid #a6ff00; /* Color verde de tu menú */
+    border-left: 8px solid #a6ff00; 
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 .grid-characters {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
 }
 .character-box {
