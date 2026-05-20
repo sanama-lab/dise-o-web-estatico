@@ -1,109 +1,202 @@
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 html, body {
-    height: 100%; 
+    height: 100%;
 }
 
 body {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    grid-template-areas: 
+    grid-template-areas:
         "header"
         "main"
         "footer";
     min-height: 100vh;
-    font-family: sans-serif;
+
+    font-family: "Courier New", monospace;
+
+    background-color: #14110f;
+    color: #d6d0c4;
 }
+
+/* ---------- LAYOUT ---------- */
 
 @media (min-width: 800px) {
     body {
-        grid-template-columns: 280px 1fr;
-        grid-template-areas: 
+        grid-template-columns: 260px 1fr;
+        grid-template-areas:
             "header header"
             "nav main"
             "footer footer";
     }
 }
 
-header { 
-    grid-area: header; 
-    background: rgb(224, 224, 224); 
-    padding: 15px 20px; 
-    display: flex; 
-    justify-content: space-between; 
+/* ---------- HEADER ---------- */
+
+header {
+    grid-area: header;
+
+    background: #1b1715;
+
+    padding: 15px 20px;
+
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    position: sticky; 
+
+    position: sticky;
     top: 0;
+
     z-index: 10;
+
+    border-bottom: 3px solid #7a5c1f;
+
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
 }
 
-main { 
-    grid-area: main; 
-    padding: 20px; 
+header h1 {
+    color: #b38b2d;
+
+    letter-spacing: 2px;
+
+    text-shadow: 2px 2px 0 #000;
 }
 
-footer { 
-    grid-area: footer; 
-    background: #333; 
-    color: white; 
-    padding: 20px; 
-    text-align: center; 
+/* ---------- MAIN ---------- */
+
+main {
+    grid-area: main;
+
+    padding: 25px;
+
+    background:
+        linear-gradient(rgba(20,17,15,0.95),
+        rgba(20,17,15,0.95)),
+        url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
 }
 
-#menu-toggle { display: none; }
+main h1,
+main h2 {
+    color: #9e7a29;
+
+    margin-bottom: 15px;
+
+    text-transform: uppercase;
+
+    text-shadow: 1px 1px #000;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    grid-area: footer;
+
+    background: #181312;
+
+    color: #8f8777;
+
+    text-align: center;
+
+    padding: 20px;
+
+    border-top: 2px solid #5c1d18;
+}
+
+/* ---------- NAV ---------- */
+
+#menu-toggle {
+    display: none;
+}
 
 nav {
     grid-area: nav;
 }
 
+nav a {
+    text-decoration: none;
+
+    color: #c7bead;
+
+    display: block;
+
+    transition: 0.2s;
+
+    font-weight: bold;
+}
+
+nav a:hover {
+    background: #5c1d18;
+
+    color: #d8a13b;
+
+    padding-left: 25px;
+}
+
+/* ---------- DESKTOP NAV ---------- */
+
 @media (min-width: 800px) {
-    .menu-btn { display: none; }
+
+    .menu-btn {
+        display: none;
+    }
 
     nav {
         display: flex;
         flex-direction: column;
-        grid-area: nav;
-        background-color: #a6ff00;
-        padding: 0;
-        gap: 0;
+
+        background-color: #1c1917;
+
+        border-right: 3px solid #4d1a16;
     }
 
     nav a {
         padding: 20px;
-        cursor: pointer;
-        color: white;
-        text-align: center;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
+
+        border-bottom: 1px solid #2f2925;
     }
 }
 
+/* ---------- MOBILE NAV ---------- */
+
 @media (max-width: 799px) {
+
     .menu-btn {
         display: block;
+
         font-size: 30px;
+
         cursor: pointer;
-        z-index: 100;
+
+        color: #b38b2d;
     }
 
     nav {
-        display: grid;
-        grid-template-columns: 1fr;
-        align-content: start;
-        
         position: fixed;
+
         top: 0;
         right: 0;
-        width: 280px;
+
+        width: 260px;
         height: 100vh;
-        background-color: #a6ff00;
-        z-index: 100;
+
+        background-color: #1a1614;
+
+        border-left: 3px solid #4d1a16;
+
         transform: translateX(100%);
+
         transition: transform 0.4s ease-in-out;
-        
+
         display: flex;
         flex-direction: column;
+
         padding-top: 80px;
+
+        z-index: 100;
     }
 
     #menu-toggle:checked ~ nav {
@@ -111,49 +204,102 @@ nav {
     }
 
     nav a {
-        color: white;
         padding: 20px;
-        text-align: center;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
+
+        border-bottom: 1px solid #2c2522;
     }
 }
-nav a {
-    text-decoration: none; 
-    color: inherit;      
-    display: block;      
-}
-main h1, main h2 {
-    margin-bottom: 20px;
-    color: #333;
-}
+
+/* ---------- GRID ---------- */
+
 .grid-info {
     display: grid;
+
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+
+    gap: 25px;
+
     margin-top: 20px;
 }
+
+/* ---------- CARDS ---------- */
+
 .card {
-    background: #fdfdfd;
+    background: #211c19;
+
     padding: 20px;
-    border-radius: 10px;
-    border-left: 8px solid #a6ff00; /* Color verde de tu menú */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+    border-radius: 6px;
+
+    border-left: 6px solid #8a6824;
+
+    border-top: 2px solid #4d1a16;
+
+    box-shadow:
+        0 0 10px rgba(0,0,0,0.7),
+        inset 0 0 20px rgba(0,0,0,0.5);
+
+    transition: 0.25s;
 }
+
+.card:hover {
+    transform: scale(1.02);
+
+    border-left-color: #c28f2c;
+
+    box-shadow:
+        0 0 15px rgba(92,29,24,0.7),
+        inset 0 0 25px rgba(0,0,0,0.6);
+}
+
+.card h2 {
+    color: #c19333;
+
+    margin-bottom: 10px;
+
+    font-size: 20px;
+}
+
+.card p {
+    color: #b6aea1;
+
+    line-height: 1.6;
+
+    font-size: 15px;
+}
+
+/* ---------- CHARACTER GRID ---------- */
+
 .grid-characters {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+
+    grid-template-columns: repeat(3, 1fr);
+
     gap: 15px;
 }
+
 .character-box {
-    background: #333;
-    color: #a6ff00;
+    background: #181312;
+
+    color: #b68b31;
+
     padding: 20px;
+
     text-align: center;
-    font-weight: bold;
-    border-radius: 5px;
+
+    border: 2px solid #5c1d18;
+
     text-transform: uppercase;
+
+    font-weight: bold;
+
+    box-shadow:
+        inset 0 0 10px rgba(0,0,0,0.7),
+        0 0 5px rgba(0,0,0,0.8);
 }
+
 @media (max-width: 600px) {
+
     .grid-characters {
         grid-template-columns: 1fr;
     }
