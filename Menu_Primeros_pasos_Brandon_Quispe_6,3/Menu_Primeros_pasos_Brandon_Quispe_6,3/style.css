@@ -23,7 +23,6 @@ body {
     color: #d6d0c4;
 }
 
-/* ---------- LAYOUT ---------- */
 
 @media (min-width: 800px) {
     body {
@@ -34,8 +33,6 @@ body {
             "footer footer";
     }
 }
-
-/* ---------- HEADER ---------- */
 
 header {
     grid-area: header;
@@ -66,17 +63,11 @@ header h1 {
     text-shadow: 2px 2px 0 #000;
 }
 
-/* ---------- MAIN ---------- */
 
 main {
     grid-area: main;
 
     padding: 25px;
-
-    background:
-        linear-gradient(rgba(20,17,15,0.95),
-        rgba(20,17,15,0.95)),
-        url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
 }
 
 main h1,
@@ -89,8 +80,6 @@ main h2 {
 
     text-shadow: 1px 1px #000;
 }
-
-/* ---------- FOOTER ---------- */
 
 footer {
     grid-area: footer;
@@ -105,8 +94,6 @@ footer {
 
     border-top: 2px solid #5c1d18;
 }
-
-/* ---------- NAV ---------- */
 
 #menu-toggle {
     display: none;
@@ -136,9 +123,8 @@ nav a:hover {
     padding-left: 25px;
 }
 
-/* ---------- DESKTOP NAV ---------- */
 
-@media (min-width: 800px) {
+@media (min-width: 1241px) {
 
     .menu-btn {
         display: none;
@@ -160,9 +146,8 @@ nav a:hover {
     }
 }
 
-/* ---------- MOBILE NAV ---------- */
 
-@media (max-width: 799px) {
+@media (max-width: 1240px) {
 
     .menu-btn {
         display: block;
@@ -210,8 +195,6 @@ nav a:hover {
     }
 }
 
-/* ---------- GRID ---------- */
-
 .grid-info {
     display: grid;
 
@@ -221,8 +204,6 @@ nav a:hover {
 
     margin-top: 20px;
 }
-
-/* ---------- CARDS ---------- */
 
 .card {
     background: #211c19;
@@ -268,39 +249,75 @@ nav a:hover {
     font-size: 15px;
 }
 
-/* ---------- CHARACTER GRID ---------- */
 
-.grid-characters {
-    display: grid;
+.tabla-clover {
 
-    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
 
-    gap: 15px;
+    border-collapse: collapse;
+
+    margin-top: 25px;
+
+    background: #1b1715;
+
+    border: 3px solid #7a5c1f;
+
+    box-shadow:
+        0 0 15px rgba(0,0,0,0.8),
+        inset 0 0 20px rgba(0,0,0,0.5);
 }
 
-.character-box {
-    background: #181312;
+.tabla-clover th {
 
-    color: #b68b31;
+    background: #2a211d;
 
-    padding: 20px;
+    color: #d6a53a;
 
-    text-align: center;
-
-    border: 2px solid #5c1d18;
+    padding: 18px;
 
     text-transform: uppercase;
 
-    font-weight: bold;
+    letter-spacing: 1px;
 
-    box-shadow:
-        inset 0 0 10px rgba(0,0,0,0.7),
-        0 0 5px rgba(0,0,0,0.8);
+    border: 2px solid #5c1d18;
+
+    text-shadow: 1px 1px #000;
 }
 
-@media (max-width: 600px) {
+.tabla-clover td {
 
-    .grid-characters {
-        grid-template-columns: 1fr;
+    padding: 16px;
+
+    border: 1px solid #3a2a25;
+
+    color: #cfc5b4;
+
+    background: #211c19;
+
+    text-align: center;
+
+    transition: 0.2s;
+}
+
+.tabla-clover tr:hover td {
+
+    background: #3b1f18;
+
+    color: #e0ae42;
+
+    transform: scale(1.01);
+}
+
+@media (max-width: 1240px) {
+
+    .tabla-clover {
+
+        font-size: 13px;
+    }
+
+    .tabla-clover th,
+    .tabla-clover td {
+
+        padding: 10px;
     }
 }
