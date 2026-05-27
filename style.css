@@ -204,7 +204,7 @@ nav a:hover {
 
     margin-top: 20px;
 }
-
+@media (max-width: 1240px) {
 .card {
     background: #211c19;
 
@@ -249,6 +249,7 @@ nav a:hover {
     font-size: 15px;
 }
 
+}
 
 .tabla-clover {
 
@@ -308,7 +309,7 @@ nav a:hover {
     transform: scale(1.01);
 }
 
-@media (max-width: 1240px) {
+@media (max-width: 1241px) {
 
     .tabla-clover {
 
