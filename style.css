@@ -24,7 +24,7 @@ body {
 }
 
 
-@media (min-width: 800px) {
+@media (min-width: 1024px) {
     body {
         grid-template-columns: 260px 1fr;
         grid-template-areas:
@@ -124,7 +124,7 @@ nav a:hover {
 }
 
 
-@media (min-width: 1241px) {
+@media (min-width: 1024px) {
 
     .menu-btn {
         display: none;
@@ -137,6 +137,11 @@ nav a:hover {
         background-color: #1c1917;
 
         border-right: 3px solid #4d1a16;
+        position: static;
+        width: auto;
+        height: auto;
+        transform: none;
+        padding-top: 0;
     }
 
     nav a {
@@ -147,7 +152,7 @@ nav a:hover {
 }
 
 
-@media (max-width: 1240px) {
+@media (max-width: 1023px) {
 
     .menu-btn {
         display: block;
@@ -204,7 +209,85 @@ nav a:hover {
 
     margin-top: 20px;
 }
-@media (max-width: 1240px) {
+
+@media (max-width: 1023px) and (orientation: portrait) {
+    .grid-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 1023px) and (orientation: landscape) {
+    .grid-info {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.table-view {
+    display: none;
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.table-view table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1b1715;
+    border: 3px solid #7a5c1f;
+    box-shadow:
+        0 0 15px rgba(0,0,0,0.8),
+        inset 0 0 20px rgba(0,0,0,0.5);
+}
+
+.table-view th,
+.table-view td {
+    padding: 16px;
+    border: 1px solid #3a2a25;
+    color: #d6d0c4;
+    text-align: left;
+}
+
+.table-view th {
+    background: #2a211d;
+    color: #d6a53a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.table-view tr:nth-child(even) td {
+    background: #1f1815;
+}
+
+.card-view {
+    display: block;
+}
+
+@media (min-width: 1024px) {
+    .table-view {
+        display: block;
+    }
+
+    .card-view {
+        display: none;
+    }
+}
+
+@media (max-width: 1023px) {
+    .table-view {
+        display: none;
+    }
+
+    .card-view {
+        display: block;
+    }
+}
+
+@media (max-width: 767px) and (orientation: portrait) {
+    .grid-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 1023px) {
 .card {
     background: #211c19;
 
@@ -309,7 +392,7 @@ nav a:hover {
     transform: scale(1.01);
 }
 
-@media (max-width: 1241px) {
+@media (max-width: 1023px) {
 
     .tabla-clover {
 
