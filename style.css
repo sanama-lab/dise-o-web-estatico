@@ -95,7 +95,7 @@ footer {
 }
 
 .menu-close {
-    display: none; /* hidden by default; only shown on mobile when menu is open */
+    display: none;
     align-items: center;
     justify-content: center;
     width: 42px;
