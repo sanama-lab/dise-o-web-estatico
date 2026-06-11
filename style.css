@@ -255,10 +255,21 @@ nav a:hover {
 }
 
 @media (max-width: 1023px) {
+    body {
+        font-size: 24px;
+    }
+
+    .menu-btn,
+    .menu-close {
+        width: 72px;
+        height: 72px;
+        font-size: 52px;
+    }
+
     .menu-close {
         display: none;
         align-self: flex-start;
-        margin: 12px 0 0 20px;
+        margin: 14px 0 0 20px;
     }
 
     #menu-toggle:checked ~ nav .menu-close {
@@ -269,7 +280,7 @@ nav a:hover {
         position: fixed;
         top: 0;
         left: 0;
-        width: 260px;
+        width: 280px;
         height: 100vh;
         background: var(--panel-contrast);
         border-right: 3px solid #4d1a16;
@@ -286,28 +297,43 @@ nav a:hover {
     }
 
     nav a {
-        padding: 20px;
+        padding: 24px;
         border-bottom: 1px solid #2c2522;
-    }
-
-    .table-view {
-        display: none;
+        font-size: 1.6rem;
+        line-height: 1.5;
     }
 
     .card-view {
         display: block;
     }
 
-    .grid-info {
+    .table-view {
+        display: none;
+    }
+
+    .card h2 {
+        font-size: 30px;
+    }
+
+    .card p {
+        font-size: 25px;
+        line-height: 1.8;
+    }
+}
+
+@media (max-width: 1023px) and (orientation: landscape) {
+    .card-view .grid-info {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-@media (max-width: 767px) {
-    .grid-info {
+@media (max-width: 1023px) and (orientation: portrait) {
+    .card-view .grid-info {
         grid-template-columns: 1fr;
     }
+}
 
+@media (max-width: 767px) {
     .tabla-clover th,
     .tabla-clover td,
     .table-view th,
