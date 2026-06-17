@@ -192,6 +192,7 @@ nav a:hover {
     color: #d6a53a;
     text-transform: uppercase;
     letter-spacing: 1px;
+    text-align: center;
 }
 
 .table-view tr:nth-child(even) td,
@@ -203,7 +204,6 @@ nav a:hover {
     text-align: center;
 }
 
-/* Table hover effects to match card visuals */
 .table-view tr:hover td,
 .tabla-clover tr:hover td {
     background: #3b1f18;
