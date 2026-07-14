@@ -1,32 +1,42 @@
-/* Base global */
+/* ==========================================
+   1. VARIABLES GLOBALES DE DISEÑO (:root)
+   ========================================== */
 :root {
-    --bg: #14110f;
-    --panel: #1c1917;
-    --panel-contrast: #1a1614;
-    --border: #7a5c1f;
-    --text: #d6d0c4;
-    --text-muted: #c7bead;
-    --text-alt: #9e7a29;
-    --highlight: #b38b2d;
-    --hover: #d8a13b;
-    --shadow: rgba(0, 0, 0, 0.8);
+    /* Paleta de colores temáticos (estilo retro/oscuro/tierra) */
+    --bg: #14110f;             /* Color de fondo principal */
+    --panel: #1c1917;          /* Fondo de los paneles y barra lateral */
+    --panel-contrast: #1a1614; /* Fondo de contraste para menú móvil */
+    --border: #7a5c1f;         /* Color dorado/marrón para bordes */
+    --text: #d6d0c4;           /* Color principal de los textos (blanco roto) */
+    --text-muted: #c7bead;     /* Texto secundario o más apagado */
+    --text-alt: #9e7a29;       /* Color de acento dorado para subtítulos */
+    --highlight: #b38b2d;      /* Color dorado brillante para resaltar */
+    --hover: #d8a13b;          /* Color dorado claro para estados hover */
+    --shadow: rgba(0, 0, 0, 0.8); /* Sombra oscura para dar profundidad */
 }
-/* Reset CSS */
+
+/* ==========================================
+   2. REINICIO DE ESTILOS (Reset) Y BASE
+   ========================================== */
 * {
+    /* Fuerza a que el ancho/alto de los elementos incluya el padding y el borde */
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 html, body {
+    /* Asegura que la página ocupe al menos todo el alto del navegador */
     min-height: 100%;
 }
 
 body {
     min-height: 100vh;
-    font-family: "Courier New", monospace;
+    font-family: "Courier New", monospace; /* Tipografía estilo máquina de escribir */
     color: var(--text);
     background: var(--bg);
+    
+    /* Configuración de Layout usando CSS Grid en 3 filas principales */
     display: grid;
     grid-template-rows: auto 1fr auto;
     grid-template-areas:
@@ -35,26 +45,32 @@ body {
         "footer";
 }
 
+/* ==========================================
+   3. MAQUETACIÓN DE COMPONENTES COMUNES
+   ========================================== */
+
+/* --- Cabecera --- */
 header {
     grid-area: header;
     background: #1b1715;
     border-bottom: 3px solid var(--border);
     box-shadow: 0 0 10px var(--shadow);
-    position: sticky;
+    position: sticky; /* Se queda fijo arriba al hacer scroll */
     top: 0;
-    z-index: 10;
+    z-index: 10;      /* Se asegura de estar encima de otros elementos */
     padding: 15px 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Título a la izquierda, menú a la derecha */
     align-items: center;
 }
 
 header h1 {
     color: var(--highlight);
     letter-spacing: 2px;
-    text-shadow: 2px 2px 0 #000;
+    text-shadow: 2px 2px 0 #000; /* Efecto retro con sombra negra sólida */
 }
 
+/* --- Contenido Principal --- */
 main {
     grid-area: main;
     padding: 25px;
@@ -68,20 +84,24 @@ main h2 {
     text-shadow: 1px 1px #000;
 }
 
+/* --- Pie de Página --- */
 footer {
     grid-area: footer;
     background: #181312;
     color: #8f8777;
     text-align: center;
     padding: 20px;
-    border-top: 2px solid #5c1d18;
+    border-top: 2px solid #5c1d18; /* Borde superior en tono rojo oscuro */
 }
 
+/* --- Elementos del Menú de Navegación --- */
 #menu-toggle {
+    /* Input checkbox oculto que sirve para controlar el estado abierto/cerrado en móvil */
     display: none;
 }
 
 .menu-btn {
+    /* Botón hamburguesa para abrir el menú (móvil) */
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -95,6 +115,7 @@ footer {
 }
 
 .menu-close {
+    /* Botón con la "X" para cerrar el menú móvil (oculto por defecto) */
     display: none;
     align-items: center;
     justify-content: center;
@@ -116,16 +137,20 @@ nav a {
     text-decoration: none;
     color: var(--text-muted);
     font-weight: bold;
-    transition: 0.2s;
+    transition: 0.2s; /* Transición suave para el estado hover */
 }
 
 nav a:hover {
-    background: #5c1d18;
-    color: var(--hover);
-    padding-left: 25px;
+    background: #5c1d18;     /* Fondo rojizo al pasar el cursor */
+    color: var(--hover);      /* Cambia el texto a dorado claro */
+    padding-left: 25px;       /* Efecto de desplazamiento a la derecha */
 }
 
+/* ==========================================
+   4. DISEÑO DE TARJETAS (Cards) Y REJILLA
+   ========================================== */
 .grid-info {
+    /* Rejilla flexible que crea columnas automáticas según el espacio disponible */
     display: grid;
     gap: 25px;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -136,15 +161,16 @@ nav a:hover {
     background: #211c19;
     border-radius: 6px;
     padding: 20px;
-    border-left: 6px solid #8a6824;
+    border-left: 6px solid #8a6824; /* Borde izquierdo grueso característico */
     border-top: 2px solid #4d1a16;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(0, 0, 0, 0.5);
-    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(0, 0, 0, 0.5); /* Sombra externa e interna */
+    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; /* Animaciones fluidas */
 }
 
 .card:hover {
-    transform: scale(1.02);
-    border-left-color: #c28f2c;
+    transform: scale(1.02); /* Se agranda ligeramente un 2% al pasar el cursor */
+    border-left-color: #c28f2c; /* Se ilumina el borde izquierdo */
+    /* Añade un brillo rojizo exterior y acentúa la sombra interna */
     box-shadow: 0 0 15px rgba(92, 29, 24, 0.7), inset 0 0 25px rgba(0, 0, 0, 0.6);
 }
 
@@ -160,16 +186,19 @@ nav a:hover {
     font-size: 15px;
 }
 
+/* ==========================================
+   5. DISEÑO DE TABLAS
+   ========================================== */
 .table-view {
-    display: none;
+    display: none; /* Oculta en pantallas pequeñas por defecto */
     margin-top: 20px;
-    overflow-x: auto;
+    overflow-x: auto; /* Permite scroll horizontal si la tabla es más ancha que la pantalla */
 }
 
 .table-view table,
 .tabla-clover {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: collapse; /* Quita los espacios dobles entre bordes */
     background: #1b1715;
     border: 3px solid var(--border);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 0, 0, 0.5);
@@ -183,7 +212,7 @@ nav a:hover {
     border: 1px solid #3a2a25;
     color: var(--text);
     text-align: left;
-    transition: 0.2s;
+    transition: 0.2s; /* Animación al hacer hover en celdas/filas */
 }
 
 .table-view th,
@@ -195,6 +224,7 @@ nav a:hover {
     text-align: center;
 }
 
+/* Estilo cebra: Filas pares tienen un fondo ligeramente diferente */
 .table-view tr:nth-child(even) td,
 .tabla-clover tr:nth-child(even) td {
     background: #1f1815;
@@ -204,14 +234,16 @@ nav a:hover {
     text-align: center;
 }
 
+/* Efecto hover interactivo sobre las filas de la tabla */
 .table-view tr:hover td,
 .tabla-clover tr:hover td {
-    background: #3b1f18;
-    color: #e0ae42;
+    background: #3b1f18; /* Fondo rojizo cálido */
+    color: #e0ae42;      /* Texto iluminado */
     box-shadow: 0 6px 14px rgba(0,0,0,0.6);
-    transform: translateY(-3px);
+    transform: translateY(-3px); /* Eleva sutilmente la fila hacia arriba */
 }
 
+/* Transiciones añadidas a todas las propiedades clave de las celdas */
 .table-view th,
 .table-view td,
 .tabla-clover th,
@@ -219,17 +251,23 @@ nav a:hover {
     transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
+/* ==========================================
+   6. MEDIA QUERIES (Responsividad)
+   ========================================== */
+
+/* --- ESCENARIO: Pantallas grandes / Escritorio (1024px o más) --- */
 @media (min-width: 1024px) {
     body {
+        /* Configura la cuadrícula con una barra lateral izquierda fija (260px) y el contenido principal al lado */
         grid-template-columns: 260px 1fr;
         grid-template-areas:
-            "header header"
-            "nav main"
-            "footer footer";
+            "header header"  /* Cabecera arriba ocupando todo el ancho */
+            "nav main"       /* Menú a la izquierda, sección principal a la derecha */
+            "footer footer"; /* Pie ocupando todo el ancho */
     }
 
     .menu-btn {
-        display: none;
+        display: none; /* En PC no se necesita el botón de menú hamburguesa */
     }
 
     nav {
@@ -246,37 +284,41 @@ nav a:hover {
     }
 
     .table-view {
-        display: block;
+        display: block; /* Se muestra la vista en tabla amplia */
     }
 
     .card-view {
-        display: none;
+        display: none;  /* Se oculta la vista de tarjetas para ahorrar espacio */
     }
 }
 
+/* --- ESCENARIO: Pantallas medianas/pequeñas / Móviles y Tablets (Menos de 1024px) --- */
 @media (max-width: 1023px) {
     body {
-        font-size: 24px;
+        font-size: 24px; /* Agranda la tipografía general para mejor lectura táctil */
     }
 
     .menu-btn,
     .menu-close {
+        /* Agranda los botones táctiles para que sean más fáciles de presionar */
         width: 72px;
         height: 72px;
         font-size: 52px;
     }
 
     .menu-close {
-        display: none;
+        display: none; /* Oculto por defecto hasta que el menú esté activo */
         align-self: flex-start;
         margin: 14px 0 0 20px;
     }
 
+    /* Si el input oculto #menu-toggle está seleccionado, muestra la "X" de cerrado */
     #menu-toggle:checked ~ nav .menu-close {
         display: inline-flex;
     }
 
     nav {
+        /* Crea un menú lateral flotante que cubre la pantalla */
         position: fixed;
         top: 0;
         left: 0;
@@ -284,14 +326,15 @@ nav a:hover {
         height: 100vh;
         background: var(--panel-contrast);
         border-right: 3px solid #4d1a16;
-        transform: translateX(-100%);
-        transition: transform 0.4s ease-in-out;
+        transform: translateX(-100%); /* Oculta el menú fuera de la pantalla (a la izquierda) */
+        transition: transform 0.4s ease-in-out; /* Animación de deslizamiento suave */
         display: flex;
         flex-direction: column;
         padding-top: 80px;
         z-index: 100;
     }
 
+    /* Si el input oculto #menu-toggle está seleccionado, desplaza el nav hacia la pantalla */
     #menu-toggle:checked ~ nav {
         transform: translateX(0);
     }
@@ -304,11 +347,11 @@ nav a:hover {
     }
 
     .card-view {
-        display: block;
+        display: block; /* Muestra las tarjetas en móvil, ya que se adaptan mejor */
     }
 
     .table-view {
-        display: none;
+        display: none;  /* Oculta las tablas anchas para evitar desbordes incómodos */
     }
 
     .card h2 {
@@ -321,28 +364,33 @@ nav a:hover {
     }
 }
 
+/* --- OPTIMIZACIONES ESPECÍFICAS PARA MÓVIL --- */
+
+/* Ajustes para tablet/móvil en modo horizontal (Landscape) */
 @media (max-width: 1023px) and (orientation: landscape) {
     .card-view .grid-info {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columnas de tarjetas */
     }
 }
 
+/* Ajustes para tablet/móvil en modo vertical (Portrait) */
 @media (max-width: 1023px) and (orientation: portrait) {
     .card-view .grid-info {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Tarjetas en una sola columna vertical */
     }
 }
 
+/* Ajustes extremos para pantallas muy pequeñas (menos de 768px, móviles comunes) */
 @media (max-width: 767px) {
     .tabla-clover th,
     .tabla-clover td,
     .table-view th,
     .table-view td {
-        padding: 10px;
+        padding: 10px; /* Reduce los espacios de las tablas para que quepan */
     }
 
     .tabla-clover,
     .table-view table {
-        font-size: 13px;
+        font-size: 13px; /* Reduce el tamaño del texto de la tabla */
     }
 }
